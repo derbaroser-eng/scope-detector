@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>scope-detector — Flag scope creep before it kills your margin</title>
+<meta name="description" content="Deterministic scope creep detection. Compare current work against contract scope. No ML, no data leaves your machine.">
+<style>
+  :root{--bg:#0b0d10;--panel:#12161c;--line:#1e2530;--ink:#e8edf4;--dim:#8b97a8;--accent:#4ade80;--warn:#fbbf24;--radius:14px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Inter,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+  h1{font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.08;margin:0 0 14px;letter-spacing:-.02em;font-weight:650}
+  h1 .dot{color:var(--accent)}
+  .tag{font-size:clamp(1rem,2.4vw,1.25rem);color:var(--dim);margin:0;max-width:56ch}
+  h2{font-size:1.05rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);margin:56px 0 20px;font-weight:600}
+  p{margin:0 0 16px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:#1a212b;padding:2px 6px;border-radius:5px}
+  .principle{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--radius);padding:20px 24px;margin:0 0 16px}
+  .principle p:last-child{margin:0}
+  .principle strong{color:var(--accent);font-weight:600}
+  .grid{display:grid;gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+  .card h3{margin:0 0 6px;font-size:1.05rem;font-weight:600}
+  .card p{margin:0;color:var(--dim);font-size:.95rem}
+  .status{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--dim);margin:0 0 26px}
+  .status .led{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  pre{background:#0f1319;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86rem;line-height:1.7;margin:0 0 16px;color:#cbd5e1}
+  .cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#0b0d10;font-weight:600;padding:14px 28px;border-radius:999px;text-decoration:none;font-size:1rem;margin:24px 0}
+  footer{padding:44px 0 72px;border-top:1px solid var(--line);color:var(--dim);font-size:.9rem}
+  a{color:var(--accent)}
+  @media (prefers-color-scheme: light){
+    :root{--bg:#fbfcfd;--panel:#fff;--line:#e3e8ef;--ink:#10151c;--dim:#5c6775}
+    pre{background:#f4f6f9;color:#2b3440}
+    code{background:#eef1f5}
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>scope-detector<span class="dot">.</span></h1>
+  <p class="tag">Flag scope creep before it kills your margin. Compare current work against contract scope. Deterministic rules. No ML. No data leaves your machine.</p>
+  <div class="status"><span class="led"></span>Live - EUR49 one-time</div>
+  <a class="cta" href="https://buy.stripe.com/fZu00m0nwdIAaGZ35C4ko0u">Buy now - EUR49</a>
+</div></header>
+
+<div class="wrap">
+
+  <h2>The problem</h2>
+  <div class="principle">
+    <p><strong>Scope creep is silent until it is too late.</strong></p>
+    <p>Project management tools track tasks and time but don't compare current work against the original contract scope. Someone has to notice — and by then, the margin is gone.</p>
+  </div>
+  <div class="principle">
+    <p><strong>Manual scope tracking is inconsistent and reactive.</strong></p>
+    <p>One person reviews scope weekly. Another doesn't review at all. The same out-of-scope work gets approved on one project and rejected on another.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>Feed it a project's contract scope and current work items. Get back:</p>
+  <div class="grid">
+    <div class="card"><h3>in_scope</h3><p>Work items that match the contract.</p></div>
+    <div class="card"><h3>out_of_scope</h3><p>Work items that don't match the contract.</p></div>
+    <div class="card"><h3>scope_creep_detected</h3><p>True if any work item is out of scope.</p></div>
+  </div>
+
+  <h2>How it works</h2>
+  <pre>$ echo '{"contract_scope":["Design website homepage","Implement contact form"],"current_work":["Design website homepage","Add blog section"]}' | python detect.py
+{"in_scope": ["Design website homepage"], "out_of_scope": ["Add blog section"], "scope_creep_detected": true}</pre>
+  <p>Deterministic substring matching. No model, no API call, no data leaves your machine. Same input to same output, every time.</p>
+
+  <h2>Why deterministic</h2>
+  <div class="principle">
+    <p><strong>An LLM deciding what is in scope is a black box you cannot audit.</strong></p>
+    <p>When a detector says "this is out of scope", you need to know why. A rule you can read is a rule you can trust, debug, and improve.</p>
+  </div>
+
+  <h2 id="buy">Buy</h2>
+  <p>EUR49 one-time. Runs locally. No subscription, no cloud, no data collection.</p>
+  <a class="cta" href="https://buy.stripe.com/fZu00m0nwdIAaGZ35C4ko0u">Buy now - EUR49</a>
+
+</div>
+
+<footer><div class="wrap">
+  <p>scope-detector</p>
+</div></footer>
+</body>
+</html>
